@@ -9,6 +9,11 @@ const helmet = require("helmet");
 const cors = require("cors");
 const rateLimit = require("express-rate-limit");
 
+//Routers
+const Signup = require('./routes/auth.routes');
+
+
+
 // built-in body parser
 app.use(express.json());
 
@@ -30,6 +35,10 @@ const limiter = rateLimit({
 })
 
 app.use(limiter);
+
+
+// Middleware to handle JSON requests
+app.use('/api/auth', Signup);  // Mount auth routes at /api/auth
 
 //Health checkup Route
 
