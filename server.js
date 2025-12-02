@@ -12,6 +12,7 @@ const rateLimit = require("express-rate-limit");
 //Routers
 const Signup = require('./routes/auth.routes');
 const Login = require('./routes/auth.routes');
+const getProfile = require('./routes/auth.routes');
 
 
 
@@ -41,6 +42,7 @@ app.use(limiter);
 // Middleware to handle JSON requests
 app.use('/api/auth', Signup);  // Mount auth routes at /api/auth
 app.use('/api/auth', Login);  // Mount auth routes at /api/auth
+app.use('/api/auth', getProfile);  // Mount auth routes at /api/auth
 
 //Health checkup Route
 
